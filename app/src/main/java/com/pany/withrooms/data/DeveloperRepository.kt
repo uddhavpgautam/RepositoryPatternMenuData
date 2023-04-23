@@ -1,9 +1,9 @@
-package com.pany.withrooms.data
+package company.withrooms.data
 
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
-import com.pany.withrooms.data.Developer
-import com.pany.withrooms.data.DeveloperDao
+import company.withrooms.data.Developer
+import company.withrooms.data.DeveloperDao
 
 /**
  * Abstracted Repository as promoted by the Architecture Guide.

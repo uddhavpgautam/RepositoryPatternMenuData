@@ -1,4 +1,4 @@
-package com.pany.withrooms.data
+package company.withrooms.data
 
 import androidx.annotation.NonNull
 import androidx.room.Entity

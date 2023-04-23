@@ -1,0 +1,20 @@
+{
+  "menuData": {
+    "version": "1.0",
+    "date": "April-13-2023",
+    "menuItems": [
+      {
+        "name": "Home",
+        "onclick": "HomeFragment"
+      },
+      {
+        "name": "Gallery",
+        "onclick": "GalleryFragment"
+      },
+      {
+        "name": "Slideshow",
+        "onclick": "SlidShowFragment"
+      }
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-package com.pany.withrooms
+package company.withrooms
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,8 +6,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.pany.withrooms.adapters.DeveloperListAdapter
-import com.pany.withrooms.viewmodels.DeveloperViewModel
+import company.withrooms.adapters.DeveloperListAdapter
+import company.withrooms.viewmodels.DeveloperViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var developerViewModel: DeveloperViewModel

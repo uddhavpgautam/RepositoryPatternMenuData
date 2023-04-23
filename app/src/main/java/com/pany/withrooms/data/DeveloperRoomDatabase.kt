@@ -1,4 +1,4 @@
-package com.pany.withrooms.data
+package company.withrooms.data
 
 import android.content.Context
 import androidx.room.Database
@@ -9,7 +9,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.google.gson.Gson
 import com.google.gson.JsonParser
 import com.google.gson.reflect.TypeToken
-import com.pany.withrooms.R
+import company.withrooms.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

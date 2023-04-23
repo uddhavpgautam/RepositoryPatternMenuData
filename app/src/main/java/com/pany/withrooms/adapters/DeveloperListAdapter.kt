@@ -1,4 +1,4 @@
-package com.pany.withrooms.adapters
+package company.withrooms.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.pany.withrooms.R
-import com.pany.withrooms.data.Developer
+import company.withrooms.R
+import company.withrooms.data.Developer
 
 
 class DeveloperListAdapter internal constructor(

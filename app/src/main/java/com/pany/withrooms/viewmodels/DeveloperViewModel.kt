@@ -1,12 +1,12 @@
-package com.pany.withrooms.viewmodels
+package company.withrooms.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.pany.withrooms.data.Developer
-import com.pany.withrooms.data.DeveloperRepository
-import com.pany.withrooms.data.DeveloperRoomDatabase
+import company.withrooms.data.Developer
+import company.withrooms.data.DeveloperRepository
+import company.withrooms.data.DeveloperRoomDatabase
 
 class DeveloperViewModel(application: Application) : AndroidViewModel(application) {
 

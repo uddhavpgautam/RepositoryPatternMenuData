@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.pany.withrooms.data
+package company.withrooms.data
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
