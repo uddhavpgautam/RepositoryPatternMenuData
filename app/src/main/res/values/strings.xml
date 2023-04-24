@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">RepositoryPatternMenuData</string>
-    <string name="companyRes">company.json</string>
+    <string name="app_name">Repository Pattern Menu Data</string>
+    <string name="companyRes">dynamicMenu.json</string>
 </resources>

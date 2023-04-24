@@ -16,36 +16,33 @@ import kotlinx.coroutines.launch
 import java.io.InputStream
 
 @Database(
-    entities = [Company::class, Career::class, Details::class, Developer::class],
-    version = 15,
+    entities = [MenuJson::class, MenuData::class, Details::class, MenuItem::class],
+    version = 1,
     exportSchema = false
 )
 @TypeConverters(Converters::class)
-abstract class DeveloperRoomDatabase : RoomDatabase() {
-    abstract fun developerDao(): DeveloperDao
+abstract class MenuDatabase : RoomDatabase() {
+    abstract fun menuItemDao(): MenuItemDao
 
     companion object {
         @Volatile
-        private var INSTANCE: DeveloperRoomDatabase? = null
+        private var INSTANCE: MenuDatabase? = null
 
         fun getDatabase(
             context: Context,
             scope: CoroutineScope
-        ): DeveloperRoomDatabase {
+        ): MenuDatabase {
             // if the INSTANCE is not null, then return it,
             // if it is, then create the database
             return INSTANCE
                 ?: synchronized(this) {
                     val instance = Room.databaseBuilder(
                             context.applicationContext,
-                            DeveloperRoomDatabase::class.java,
-                            "developer_database"
+                            MenuDatabase::class.java,
+                            "menu_json_database"
                         ).fallbackToDestructiveMigration()
                         .addCallback(
-                            DeveloperDatabaseCallback(
-                                context,
-                                scope
-                            )
+                            MenuDbCallback(context, scope)
                         )
                         .build()
                     INSTANCE = instance
@@ -53,10 +50,10 @@ abstract class DeveloperRoomDatabase : RoomDatabase() {
                 }
         }
 
-        private class DeveloperDatabaseCallback(
+        private class MenuDbCallback(
             private val context: Context,
             private val scope: CoroutineScope
-        ) : RoomDatabase.Callback() {
+        ) : Callback() {
             override fun onOpen(db: SupportSQLiteDatabase) {
                 super.onOpen(db)
                 // If you want to keep the data through app restarts,
@@ -69,31 +66,31 @@ abstract class DeveloperRoomDatabase : RoomDatabase() {
                             )
                         ).asJsonObject
 
-                        val companyType = object : TypeToken<Company>() {}.type
-                        val company: Company = Gson().fromJson(jsonObj, companyType)
+                        val menuJsonType = object : TypeToken<MenuJson>() {}.type
+                        val menuJson: MenuJson = Gson().fromJson(jsonObj, menuJsonType)
 
                         populateDatabase(
                             database,
-                            company
+                            menuJson
                         )
                     }
                 }
             }
         }
 
-        // Populate the database from company.json file - needs to be in a new coroutine
+        // Populate the database from dynamicMenu.json file - needs to be in a new coroutine
         // If needed, you can parse the fields you want from the database and use them
         // This example shows a list by the Developer object/class
 
-        fun populateDatabase(database: DeveloperRoomDatabase, company: Company) {
-            val developerDao = database.developerDao()
+        fun populateDatabase(database: MenuDatabase, menuJson: MenuJson) {
+            val menuItemDao = database.menuItemDao()
 
             // Empty database on first load
-            developerDao.deleteAll()
+            menuItemDao.deleteAll()
 
-            val developerList = company.career?.developers
-            developerList?.forEach {
-                developerDao.insert(Developer(it.developer))
+            val menuItemList = menuJson.menuData?.menuItems
+            menuItemList?.forEach {
+                menuItemDao.insert(MenuItem(it.name, it.onclick))
             }
         }
 

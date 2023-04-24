@@ -1,4 +1,6 @@
 {
+  "id": 1,
+  "date": "April-13-2023",
   "menuData": {
     "version": "1.0",
     "date": "April-13-2023",
@@ -8,13 +10,21 @@
         "onclick": "HomeFragment"
       },
       {
-        "name": "Gallery",
-        "onclick": "GalleryFragment"
-      },
-      {
-        "name": "Slideshow",
-        "onclick": "SlidShowFragment"
+        "name": "SlideShow",
+        "onclick": "SlideShowFragment"
       }
-    ]
+    ],
+    "maintainers": {
+      "tech": [
+        "Uddhav P. Gautam",
+        "Jason Lau",
+        "Austin Duff"
+      ],
+      "management": [
+        "Anjana Santhanam",
+        "Tina Eng",
+        "Jonathan Banks"
+      ]
+    }
   }
 }
