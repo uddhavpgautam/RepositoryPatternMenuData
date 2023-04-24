@@ -9,12 +9,13 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = "details_table")
 data class Details constructor(
         @PrimaryKey
-        @ColumnInfo(name = "technologies")
-        @SerializedName("technologies")
+        @ColumnInfo(name = "tech")
+        @SerializedName("tech")
         @Expose
         var technologies: List<String>,
-        @SerializedName("employeeLevels")
+
+        @SerializedName("management")
         @Expose
-        @ColumnInfo(name = "employeeLevels")
+        @ColumnInfo(name = "management")
         var employeeLevels: List<String>
 )

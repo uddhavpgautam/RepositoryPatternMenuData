@@ -5,18 +5,17 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
-import company.withrooms.data.Developer
 
 
 @Dao
-interface DeveloperDao {
+interface MenuItemDao {
 
-    @Query("SELECT * from developer_table")
-    fun getDevelopers(): LiveData<List<Developer>>
+    @Query("SELECT * from menu_item_table")
+    fun getDevelopers(): LiveData<List<MenuItem>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insert(developer: Developer)
+    fun insert(menuItem: MenuItem)
 
-    @Query("DELETE FROM developer_table")
+    @Query("DELETE FROM menu_item_table")
     fun deleteAll()
 }

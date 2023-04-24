@@ -6,17 +6,29 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = "careers_table")
-data class Career constructor(
+@Entity(tableName = "menu_data_table")
+data class MenuData constructor(
         @PrimaryKey(autoGenerate = true)
         @SerializedName("id")
         @Expose
         var careerId: Int?,
-        @SerializedName("developers")
+
+        @SerializedName("version")
         @Expose
         @NonNull
-        var developers: List<Developer>,
-        @SerializedName("details")
+        var version: String,
+
+        @SerializedName("date")
+        @Expose
+        @NonNull
+        var date: String,
+
+        @SerializedName("menuItems")
+        @Expose
+        @NonNull
+        var menuItems: List<MenuItem>,
+
+        @SerializedName("maintainers")
         @Expose
         @NonNull
         var details: Details

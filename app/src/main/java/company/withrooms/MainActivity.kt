@@ -7,10 +7,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import company.withrooms.adapters.DeveloperListAdapter
-import company.withrooms.viewmodels.DeveloperViewModel
+import company.withrooms.viewmodels.MenuViewModel
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var developerViewModel: DeveloperViewModel
+    private lateinit var menuViewModel: MenuViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,10 +22,10 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 
-        developerViewModel = ViewModelProvider(this).get(DeveloperViewModel::class.java)
+        menuViewModel = ViewModelProvider(this)[MenuViewModel::class.java]
 
-        developerViewModel.allDevelopers.observe(this, Observer { developers ->
+        menuViewModel.allDevelopers.observe(this) { developers ->
             developers?.let { adapter.setDevelopers(it) }
-        })
+        }
     }
 }

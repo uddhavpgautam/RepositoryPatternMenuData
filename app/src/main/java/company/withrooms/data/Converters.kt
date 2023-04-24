@@ -6,15 +6,15 @@ import com.google.gson.reflect.TypeToken
 
 class Converters {
     @TypeConverter
-    fun fromDeveloperList(countryLang: List<Developer?>?): String? {
-        val type = object : TypeToken<List<Developer?>?>() {}.type
+    fun fromDeveloperList(countryLang: List<MenuItem?>?): String? {
+        val type = object : TypeToken<List<MenuItem?>?>() {}.type
         return Gson().toJson(countryLang, type)
     }
 
     @TypeConverter
-    fun toDeveloperList(countryLangString: String?): List<Developer>? {
-        val type = object : TypeToken<List<Developer?>?>() {}.type
-        return Gson().fromJson<List<Developer>>(countryLangString, type)
+    fun toDeveloperList(countryLangString: String?): List<MenuItem>? {
+        val type = object : TypeToken<List<MenuItem?>?>() {}.type
+        return Gson().fromJson<List<MenuItem>>(countryLangString, type)
     }
 
     @TypeConverter

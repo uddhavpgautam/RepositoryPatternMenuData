@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import company.withrooms.R
-import company.withrooms.data.Developer
+import company.withrooms.data.MenuItem
 
 
 class DeveloperListAdapter internal constructor(
@@ -15,7 +15,7 @@ class DeveloperListAdapter internal constructor(
 ) : RecyclerView.Adapter<DeveloperListAdapter.DeveloperViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private var developers = emptyList<Developer>() // Cached copy
+    private var menuItems = emptyList<MenuItem>() // Cached copy
 
     inner class DeveloperViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val developerItemView: TextView = itemView.findViewById(R.id.textView)
@@ -27,16 +27,16 @@ class DeveloperListAdapter internal constructor(
     }
 
     override fun onBindViewHolder(holder: DeveloperViewHolder, position: Int) {
-        val current = developers[position]
-        holder.developerItemView.text = current.developer
+        val current = menuItems[position]
+        holder.developerItemView.text = current.name
     }
 
-    internal fun setDevelopers(developers: List<Developer>) {
-        this.developers = developers
+    internal fun setDevelopers(menuItems: List<MenuItem>) {
+        this.menuItems = menuItems
         notifyDataSetChanged()
     }
 
-    override fun getItemCount() = developers.size
+    override fun getItemCount() = menuItems.size
 }
 
 

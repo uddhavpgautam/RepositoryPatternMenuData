@@ -16,14 +16,18 @@
 
 package company.withrooms.data
 
+import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "developer_table")
-data class Developer constructor(
+@Entity(tableName = "menu_item_table")
+data class MenuItem constructor(
         @PrimaryKey
-        @ColumnInfo(name = "developer")
-        var developer: String
+        @ColumnInfo(name = "name")
+        @NonNull
+        var name: String,
 
+        @ColumnInfo(name = "onclick")
+        var onclick: String
 )
