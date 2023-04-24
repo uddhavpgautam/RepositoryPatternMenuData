@@ -11,7 +11,7 @@ class MenuRepository(private val menuItemDao: MenuItemDao) {
 
     // LiveData observer will notify when the data has changed
     // Room executes all the queries on a separate threads
-    val allDevelopers: LiveData<List<MenuItem>> = menuItemDao.getDevelopers()
+    val allMenuItems: LiveData<List<MenuItem>> = menuItemDao.getMenuItems()
 
     //Insertion has to be on a non-UI thread - in opposite applicaiton will crash. So we're making this a
     // suspend function so the caller methods know this.

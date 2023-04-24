@@ -88,8 +88,8 @@ abstract class MenuDatabase : RoomDatabase() {
             // Empty database on first load
             menuItemDao.deleteAll()
 
-            val developerList = menuJson.menuData?.menuItems
-            developerList?.forEach {
+            val menuItemList = menuJson.menuData?.menuItems
+            menuItemList?.forEach {
                 menuItemDao.insert(MenuItem(it.name, it.onclick))
             }
         }

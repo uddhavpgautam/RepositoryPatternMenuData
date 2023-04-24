@@ -1,31 +1,31 @@
 package company.withrooms
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import company.withrooms.adapters.DeveloperListAdapter
+import company.withrooms.adapters.MenuItemListAdapter
 import company.withrooms.viewmodels.MenuViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    private lateinit var menuViewModel: MenuViewModel
+    private val menuViewModel by viewModels<MenuViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val adapter = DeveloperListAdapter(this)
+        val adapter = MenuItemListAdapter(this)
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 
-        menuViewModel = ViewModelProvider(this)[MenuViewModel::class.java]
 
-        menuViewModel.allDevelopers.observe(this) { developers ->
-            developers?.let { adapter.setDevelopers(it) }
+        menuViewModel.allMenuItems.observe(this) { menuItems ->
+            menuItems?.let { adapter.setMenuItems(it) }
         }
     }
 }

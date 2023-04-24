@@ -10,28 +10,28 @@ import company.withrooms.R
 import company.withrooms.data.MenuItem
 
 
-class DeveloperListAdapter internal constructor(
+class MenuItemListAdapter internal constructor(
         context: Context
-) : RecyclerView.Adapter<DeveloperListAdapter.DeveloperViewHolder>() {
+) : RecyclerView.Adapter<MenuItemListAdapter.MenuItemViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var menuItems = emptyList<MenuItem>() // Cached copy
 
-    inner class DeveloperViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val developerItemView: TextView = itemView.findViewById(R.id.textView)
+    inner class MenuItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val menuItemView: TextView = itemView.findViewById(R.id.textView)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DeveloperViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuItemViewHolder {
         val itemView = inflater.inflate(R.layout.recyclerview_item, parent, false)
-        return DeveloperViewHolder(itemView)
+        return MenuItemViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: DeveloperViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MenuItemViewHolder, position: Int) {
         val current = menuItems[position]
-        holder.developerItemView.text = current.name
+        holder.menuItemView.text = current.name
     }
 
-    internal fun setDevelopers(menuItems: List<MenuItem>) {
+    internal fun setMenuItems(menuItems: List<MenuItem>) {
         this.menuItems = menuItems
         notifyDataSetChanged()
     }

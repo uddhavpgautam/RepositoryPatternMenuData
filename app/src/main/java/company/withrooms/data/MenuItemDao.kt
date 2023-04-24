@@ -11,7 +11,7 @@ import androidx.room.Query;
 interface MenuItemDao {
 
     @Query("SELECT * from menu_item_table")
-    fun getDevelopers(): LiveData<List<MenuItem>>
+    fun getMenuItems(): LiveData<List<MenuItem>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(menuItem: MenuItem)
